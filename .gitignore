@@ -34,6 +34,9 @@
 # Other
 *.pdb
 .vs/*
+<<<<<<< HEAD
 *.opendb
+=======
+>>>>>>> parent of cbc8e5e (Add missing files)
 *.ipch
 *.ilk
