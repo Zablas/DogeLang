@@ -33,6 +33,7 @@
 
 # Other
 *.pdb
+.vs/*
 *.opendb
 *.ipch
 *.ilk
