@@ -151,7 +151,7 @@ namespace {
     };
 
     /// NumberExprAST - Expression class for numeric literals like "1.0".
-    class NumberExprAST : public ExprAST {
+    class NumberExprAST : public ExprAST { // DONE
         double Val;
 
     public:
@@ -161,7 +161,7 @@ namespace {
     };
 
     /// VariableExprAST - Expression class for referencing a variable, like "a".
-    class VariableExprAST : public ExprAST {
+    class VariableExprAST : public ExprAST { // DONE
         std::string Name;
 
     public:
