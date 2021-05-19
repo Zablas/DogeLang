@@ -184,7 +184,7 @@ namespace {
     };
 
     /// BinaryExprAST - Expression class for a binary operator.
-    class BinaryExprAST : public ExprAST {
+    class BinaryExprAST : public ExprAST { // DONE
         char Op;
         std::unique_ptr<ExprAST> LHS, RHS;
 
