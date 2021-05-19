@@ -280,7 +280,7 @@ namespace {
     };
 
     /// FunctionAST - This class represents a function definition itself.
-    class FunctionAST {
+    class FunctionAST { // DONE
         std::unique_ptr<PrototypeAST> Proto;
         std::unique_ptr<ExprAST> Body;
 
