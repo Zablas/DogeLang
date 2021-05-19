@@ -45,6 +45,7 @@
 #include "VariableExprAST.h"
 #include "Token.h"
 #include "MapContainers.h"
+#include "GlobalPointers.h"
 
 using namespace llvm;
 using namespace llvm::sys;
@@ -526,9 +527,6 @@ static std::unique_ptr<PrototypeAST> ParseExtern() {
 // Code Generation
 //===----------------------------------------------------------------------===//
 
-static std::unique_ptr<LLVMContext> TheContext;
-static std::unique_ptr<Module> TheModule;
-static std::unique_ptr<IRBuilder<>> Builder;
 static ExitOnError ExitOnErr;
 
 Value* LogErrorV(const char* Str) {
