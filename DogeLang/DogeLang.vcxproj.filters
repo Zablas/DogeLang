@@ -95,5 +95,8 @@
     <ClInclude Include="GlobalPointers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LogFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

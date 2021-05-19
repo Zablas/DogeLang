@@ -160,6 +160,7 @@
     <ClInclude Include="FunctionAST.h" />
     <ClInclude Include="GlobalPointers.h" />
     <ClInclude Include="IfExprAST.h" />
+    <ClInclude Include="LogFunctions.h" />
     <ClInclude Include="MapContainers.h" />
     <ClInclude Include="NumberExprAST.h" />
     <ClInclude Include="PrototypeAST.h" />

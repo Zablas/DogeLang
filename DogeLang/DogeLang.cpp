@@ -46,6 +46,7 @@
 #include "Token.h"
 #include "MapContainers.h"
 #include "GlobalPointers.h"
+#include "LogFunctions.h"
 
 using namespace llvm;
 using namespace llvm::sys;
@@ -143,17 +144,6 @@ static int GetTokPrecedence() {
     if (TokPrec <= 0)
         return -1;
     return TokPrec;
-}
-
-/// LogError* - These are little helper functions for error handling.
-std::unique_ptr<ExprAST> LogError(const char* Str) {
-    fprintf(stderr, "Error: %s\n", Str);
-    return nullptr;
-}
-
-std::unique_ptr<PrototypeAST> LogErrorP(const char* Str) {
-    LogError(Str);
-    return nullptr;
 }
 
 static std::unique_ptr<ExprAST> ParseExpression();
@@ -529,11 +519,6 @@ static std::unique_ptr<PrototypeAST> ParseExtern() {
 
 static ExitOnError ExitOnErr;
 
-Value* LogErrorV(const char* Str) {
-    LogError(Str);
-    return nullptr;
-}
-
 Function* getFunction(std::string Name) {
     // First, see if the function has already been added to the current module.
     if (auto* F = TheModule->getFunction(Name))
@@ -556,20 +541,6 @@ static AllocaInst* CreateEntryBlockAlloca(Function* TheFunction,
     IRBuilder<> TmpB(&TheFunction->getEntryBlock(),
         TheFunction->getEntryBlock().begin());
     return TmpB.CreateAlloca(Type::getDoubleTy(*TheContext), nullptr, VarName);
-}
-
-Value* NumberExprAST::codegen() {
-    return ConstantFP::get(*TheContext, APFloat(Val));
-}
-
-Value* VariableExprAST::codegen() {
-    // Look this variable up in the function.
-    Value* V = NamedValues[Name];
-    if (!V)
-        return LogErrorV("Unknown variable name");
-
-    // Load the value.
-    return Builder->CreateLoad(Type::getDoubleTy(*TheContext), V, Name.c_str());
 }
 
 Value* UnaryExprAST::codegen() {
