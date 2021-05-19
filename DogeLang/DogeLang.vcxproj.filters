@@ -24,12 +24,69 @@
     <ClCompile Include="NumberExprAST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VariableExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnaryExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CallExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IfExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ForExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VarExprAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrototypeAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionAST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExprAST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NumberExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnaryExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CallExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IfExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ForExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VarExprAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrototypeAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionAST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Token.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

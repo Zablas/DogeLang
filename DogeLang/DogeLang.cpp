@@ -19,6 +19,7 @@
 #include "llvm/Support/TargetSelect.h"
 #include "llvm/Target/TargetMachine.h"
 #include "llvm/Target/TargetOptions.h"
+
 #include <algorithm>
 #include <cassert>
 #include <cctype>
@@ -31,40 +32,21 @@
 #include <utility>
 #include <vector>
 
+#include "ExprAST.h"
+#include "BinaryExprAST.h"
+#include "CallExprAST.h"
+#include "ForExprAST.h"
+#include "FunctionAST.h"
+#include "IfExprAST.h"
+#include "NumberExprAST.h"
+#include "PrototypeAST.h"
+#include "UnaryExprAST.h"
+#include "VarExprAST.h"
+#include "VariableExprAST.h"
+#include "Token.h"
+
 using namespace llvm;
 using namespace llvm::sys;
-
-//===----------------------------------------------------------------------===//
-// Lexer
-//===----------------------------------------------------------------------===//
-
-// The lexer returns tokens [0-255] if it is an unknown character, otherwise one
-// of these for known things.
-enum Token {
-    tok_eof = -1,
-
-    // commands
-    tok_def = -2,
-    tok_extern = -3,
-
-    // primary
-    tok_identifier = -4,
-    tok_number = -5,
-
-    // control
-    tok_if = -6,
-    tok_then = -7,
-    tok_else = -8,
-    tok_for = -9,
-    tok_in = -10,
-
-    // operators
-    tok_binary = -11,
-    tok_unary = -12,
-
-    // var definition
-    tok_var = -13
-};
 
 static std::string IdentifierStr; // Filled in if tok_identifier
 static double NumVal;             // Filled in if tok_number
@@ -135,164 +117,6 @@ static int gettok() {
     LastChar = getchar();
     return ThisChar;
 }
-
-//===----------------------------------------------------------------------===//
-// Abstract Syntax Tree (aka Parse Tree)
-//===----------------------------------------------------------------------===//
-
-namespace {
-
-    /// ExprAST - Base class for all expression nodes.
-    class ExprAST { // DONE
-    public:
-        virtual ~ExprAST() = default;
-
-        virtual Value* codegen() = 0;
-    };
-
-    /// NumberExprAST - Expression class for numeric literals like "1.0".
-    class NumberExprAST : public ExprAST { // DONE
-        double Val;
-
-    public:
-        NumberExprAST(double Val) : Val(Val) {}
-
-        Value* codegen() override;
-    };
-
-    /// VariableExprAST - Expression class for referencing a variable, like "a".
-    class VariableExprAST : public ExprAST { // DONE
-        std::string Name;
-
-    public:
-        VariableExprAST(const std::string& Name) : Name(Name) {}
-
-        Value* codegen() override;
-        const std::string& getName() const { return Name; }
-    };
-
-    /// UnaryExprAST - Expression class for a unary operator.
-    class UnaryExprAST : public ExprAST { // DONE
-        char Opcode;
-        std::unique_ptr<ExprAST> Operand;
-
-    public:
-        UnaryExprAST(char Opcode, std::unique_ptr<ExprAST> Operand)
-            : Opcode(Opcode), Operand(std::move(Operand)) {}
-
-        Value* codegen() override;
-    };
-
-    /// BinaryExprAST - Expression class for a binary operator.
-    class BinaryExprAST : public ExprAST { // DONE
-        char Op;
-        std::unique_ptr<ExprAST> LHS, RHS;
-
-    public:
-        BinaryExprAST(char Op, std::unique_ptr<ExprAST> LHS,
-            std::unique_ptr<ExprAST> RHS)
-            : Op(Op), LHS(std::move(LHS)), RHS(std::move(RHS)) {}
-
-        Value* codegen() override;
-    };
-
-    /// CallExprAST - Expression class for function calls.
-    class CallExprAST : public ExprAST { // DONE
-        std::string Callee;
-        std::vector<std::unique_ptr<ExprAST>> Args;
-
-    public:
-        CallExprAST(const std::string& Callee,
-            std::vector<std::unique_ptr<ExprAST>> Args)
-            : Callee(Callee), Args(std::move(Args)) {}
-
-        Value* codegen() override;
-    };
-
-    /// IfExprAST - Expression class for if/then/else.
-    class IfExprAST : public ExprAST { // DONE
-        std::unique_ptr<ExprAST> Cond, Then, Else;
-
-    public:
-        IfExprAST(std::unique_ptr<ExprAST> Cond, std::unique_ptr<ExprAST> Then,
-            std::unique_ptr<ExprAST> Else)
-            : Cond(std::move(Cond)), Then(std::move(Then)), Else(std::move(Else)) {}
-
-        Value* codegen() override;
-    };
-
-    /// ForExprAST - Expression class for for/in.
-    class ForExprAST : public ExprAST { // DONE
-        std::string VarName;
-        std::unique_ptr<ExprAST> Start, End, Step, Body;
-
-    public:
-        ForExprAST(const std::string& VarName, std::unique_ptr<ExprAST> Start,
-            std::unique_ptr<ExprAST> End, std::unique_ptr<ExprAST> Step,
-            std::unique_ptr<ExprAST> Body)
-            : VarName(VarName), Start(std::move(Start)), End(std::move(End)),
-            Step(std::move(Step)), Body(std::move(Body)) {}
-
-        Value* codegen() override;
-    };
-
-    /// VarExprAST - Expression class for var/in
-    class VarExprAST : public ExprAST { // DONE
-        std::vector<std::pair<std::string, std::unique_ptr<ExprAST>>> VarNames;
-        std::unique_ptr<ExprAST> Body;
-
-    public:
-        VarExprAST(
-            std::vector<std::pair<std::string, std::unique_ptr<ExprAST>>> VarNames,
-            std::unique_ptr<ExprAST> Body)
-            : VarNames(std::move(VarNames)), Body(std::move(Body)) {}
-
-        Value* codegen() override;
-    };
-
-    /// PrototypeAST - This class represents the "prototype" for a function,
-    /// which captures its name, and its argument names (thus implicitly the number
-    /// of arguments the function takes), as well as if it is an operator.
-    class PrototypeAST { // DONE
-        std::string Name;
-        std::vector<std::string> Args;
-        bool IsOperator;
-        unsigned Precedence; // Precedence if a binary op.
-
-    public:
-        PrototypeAST(const std::string& Name, std::vector<std::string> Args,
-            bool IsOperator = false, unsigned Prec = 0)
-            : Name(Name), Args(std::move(Args)), IsOperator(IsOperator),
-            Precedence(Prec) {}
-
-        Function* codegen();
-        const std::string& getName() const { return Name; }
-
-        bool isUnaryOp() const { return IsOperator && Args.size() == 1; }
-        bool isBinaryOp() const { return IsOperator && Args.size() == 2; }
-
-        char getOperatorName() const {
-            assert(isUnaryOp() || isBinaryOp());
-            return Name[Name.size() - 1];
-        }
-
-        unsigned getBinaryPrecedence() const { return Precedence; }
-    };
-
-    /// FunctionAST - This class represents a function definition itself.
-    class FunctionAST { // DONE
-        std::unique_ptr<PrototypeAST> Proto;
-        std::unique_ptr<ExprAST> Body;
-
-    public:
-        FunctionAST(std::unique_ptr<PrototypeAST> Proto,
-            std::unique_ptr<ExprAST> Body)
-            : Proto(std::move(Proto)), Body(std::move(Body)) {}
-
-        Function* codegen();
-    };
-
-} // end anonymous namespace
 
 //===----------------------------------------------------------------------===//
 // Parser
