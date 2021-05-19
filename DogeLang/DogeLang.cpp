@@ -210,7 +210,7 @@ namespace {
     };
 
     /// IfExprAST - Expression class for if/then/else.
-    class IfExprAST : public ExprAST {
+    class IfExprAST : public ExprAST { // DONE
         std::unique_ptr<ExprAST> Cond, Then, Else;
 
     public:
@@ -222,7 +222,7 @@ namespace {
     };
 
     /// ForExprAST - Expression class for for/in.
-    class ForExprAST : public ExprAST {
+    class ForExprAST : public ExprAST { // DONE
         std::string VarName;
         std::unique_ptr<ExprAST> Start, End, Step, Body;
 
@@ -237,7 +237,7 @@ namespace {
     };
 
     /// VarExprAST - Expression class for var/in
-    class VarExprAST : public ExprAST {
+    class VarExprAST : public ExprAST { // DONE
         std::vector<std::pair<std::string, std::unique_ptr<ExprAST>>> VarNames;
         std::unique_ptr<ExprAST> Body;
 
