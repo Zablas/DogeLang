@@ -159,6 +159,7 @@
     <ClInclude Include="ForExprAST.h" />
     <ClInclude Include="FunctionAST.h" />
     <ClInclude Include="IfExprAST.h" />
+    <ClInclude Include="MapContainers.h" />
     <ClInclude Include="NumberExprAST.h" />
     <ClInclude Include="PrototypeAST.h" />
     <ClInclude Include="Token.h" />
