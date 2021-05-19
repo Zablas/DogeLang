@@ -47,6 +47,7 @@
 #include "MapContainers.h"
 #include "GlobalPointers.h"
 #include "LogFunctions.h"
+#include "Getters.h"
 
 using namespace llvm;
 using namespace llvm::sys;
@@ -519,21 +520,6 @@ static std::unique_ptr<PrototypeAST> ParseExtern() {
 
 static ExitOnError ExitOnErr;
 
-Function* getFunction(std::string Name) {
-    // First, see if the function has already been added to the current module.
-    if (auto* F = TheModule->getFunction(Name))
-        return F;
-
-    // If not, check whether we can codegen the declaration from some existing
-    // prototype.
-    auto FI = FunctionProtos.find(Name);
-    if (FI != FunctionProtos.end())
-        return FI->second->codegen();
-
-    // If no existing prototype exists, return null.
-    return nullptr;
-}
-
 /// CreateEntryBlockAlloca - Create an alloca instruction in the entry block of
 /// the function.  This is used for mutable variables etc.
 static AllocaInst* CreateEntryBlockAlloca(Function* TheFunction,
@@ -541,18 +527,6 @@ static AllocaInst* CreateEntryBlockAlloca(Function* TheFunction,
     IRBuilder<> TmpB(&TheFunction->getEntryBlock(),
         TheFunction->getEntryBlock().begin());
     return TmpB.CreateAlloca(Type::getDoubleTy(*TheContext), nullptr, VarName);
-}
-
-Value* UnaryExprAST::codegen() {
-    Value* OperandV = Operand->codegen();
-    if (!OperandV)
-        return nullptr;
-
-    Function* F = getFunction(std::string("unary") + Opcode);
-    if (!F)
-        return LogErrorV("Unknown unary operator");
-
-    return Builder->CreateCall(F, OperandV, "unop");
 }
 
 Value* BinaryExprAST::codegen() {

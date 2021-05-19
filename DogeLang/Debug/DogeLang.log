@@ -425,7 +425,7 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(226): message
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<unsigned int>> &)' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to class template instantiation 'llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(463,24): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
-  VariableExprAST.cpp
+  UnaryExprAST.cpp
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Alignment.h(201,17): warning C4244: 'return': conversion from 'uint64_t' to 'uintptr_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(115,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(120,23): warning C4244: 'return': conversion from 'uint64_t' to 'long', possible loss of data
@@ -441,6 +441,7 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(612,52): warni
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\GlobalObject.h(76,12): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(355,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(456,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\InstrTypes.h(1598,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\InstrTypes.h(1609,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(127,58): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
@@ -449,20 +450,19 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(350,58): warni
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(91,1): warning C4624: 'llvm::detail::trivial_helper<T>': destructor was implicitly defined as deleted
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(144): message : see reference to class template instantiation 'llvm::detail::trivial_helper<T>' being compiled
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Optional.h(216): message : see reference to class template instantiation 'llvm::is_trivially_copyable<T>' being compiled
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(3451): message : see reference to class template instantiation 'llvm::Optional<llvm::SmallVector<uint32_t,8>>' being compiled
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(3451): message : see reference to class template instantiation 'llvm::Optional<llvm::SmallVector<unsigned int,8>>' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\IntrinsicInst.h(536,52): warning C4244: 'return': conversion from 'uint64_t' to 'uint32_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(116,1): warning C4624: 'llvm::OverflowingBinaryOperator': destructor was implicitly defined as deleted
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(157,1): warning C4624: 'llvm::PossiblyExactOperator': destructor was implicitly defined as deleted
@@ -540,6 +540,7 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instruction.h(804): message :
               StorageType=unsigned short
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(585): message : see reference to function template instantiation 'bool llvm::Instruction::getSubclassData<llvm::AtomicCmpXchgInst::WeakField>(void) const' being compiled
+C:\Users\vagab\source\repos\DogeLang\DogeLang\PrototypeAST.h(23,25): warning C5046: '`anonymous-namespace'::PrototypeAST::codegen': Symbol involving type with internal linkage not defined
   Generating Code...
      Creating library C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.lib and object C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exp
   DogeLang.vcxproj -> C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exe
