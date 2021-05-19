@@ -140,6 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DogeLang.cpp" />
+    <ClCompile Include="ExprAST.cpp" />
+    <ClCompile Include="NumberExprAST.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExprAST.h" />
+    <ClInclude Include="NumberExprAST.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
