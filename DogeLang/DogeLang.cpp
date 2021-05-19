@@ -253,7 +253,7 @@ namespace {
     /// PrototypeAST - This class represents the "prototype" for a function,
     /// which captures its name, and its argument names (thus implicitly the number
     /// of arguments the function takes), as well as if it is an operator.
-    class PrototypeAST {
+    class PrototypeAST { // DONE
         std::string Name;
         std::vector<std::string> Args;
         bool IsOperator;
