@@ -19,9 +19,12 @@ static void InitializeModuleAndPassManager() {
 }
 
 /// top ::= definition | external | expression | ';'
-static void MainLoop() {
-    while (true) {
-        switch (CurTok) {
+static void MainLoop()
+{
+    while (true)
+    {
+        switch (CurTok)
+        {
         case tok_eof:
             return;
         case ';': // ignore top-level semicolons.

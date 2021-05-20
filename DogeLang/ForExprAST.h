@@ -77,15 +77,14 @@ namespace
 
 			// Emit the step value.
 			llvm::Value* StepVal = nullptr;
-			if (Step) {
+			if (Step)
+			{
 				StepVal = Step->codegen();
 				if (!StepVal)
 					return nullptr;
 			}
-			else {
-				// If not specified, use 1.0.
+			else // If not specified, use 1.0.
 				StepVal = llvm::ConstantFP::get(*TheContext, llvm::APFloat(1.0));
-			}
 
 			// Compute the end condition.
 			llvm::Value* EndCond = End->codegen();

@@ -27,7 +27,8 @@ namespace
 			llvm::Function* TheFunction = Builder->GetInsertBlock()->getParent();
 
 			// Register all variables and emit their initializer.
-			for (unsigned i = 0, e = VarNames.size(); i != e; ++i) {
+			for (unsigned i = 0, e = VarNames.size(); i != e; ++i)
+			{
 				const std::string& VarName = VarNames[i].first;
 				ExprAST* Init = VarNames[i].second.get();
 

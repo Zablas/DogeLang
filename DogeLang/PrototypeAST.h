@@ -44,7 +44,8 @@ namespace
         bool isUnaryOp() const { return IsOperator && Args.size() == 1; }
         bool isBinaryOp() const { return IsOperator && Args.size() == 2; }
 
-        char getOperatorName() const {
+        char getOperatorName() const
+        {
             assert(isUnaryOp() || isBinaryOp());
             return Name[Name.size() - 1];
         }

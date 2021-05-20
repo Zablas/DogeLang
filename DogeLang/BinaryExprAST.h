@@ -24,7 +24,8 @@ namespace
         llvm::Value* codegen() override
         {
             // Special case '=' because we don't want to emit the LHS as an expression.
-            if (Op == '=') {
+            if (Op == '=')
+            {
                 // Assignment requires the LHS to be an identifier.
                 // This assume we're building without RTTI because LLVM builds that way by
                 // default.  If you build LLVM with RTTI this can be changed to a
