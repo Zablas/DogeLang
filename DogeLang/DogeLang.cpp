@@ -520,54 +520,6 @@ static std::unique_ptr<PrototypeAST> ParseExtern() {
 
 static ExitOnError ExitOnErr;
 
-Function* FunctionAST::codegen() {
-    // Transfer ownership of the prototype to the FunctionProtos map, but keep a
-    // reference to it for use below.
-    auto& P = *Proto;
-    FunctionProtos[Proto->getName()] = std::move(Proto);
-    Function* TheFunction = getFunction(P.getName());
-    if (!TheFunction)
-        return nullptr;
-
-    // If this is an operator, install it.
-    if (P.isBinaryOp())
-        BinopPrecedence[P.getOperatorName()] = P.getBinaryPrecedence();
-
-    // Create a new basic block to start insertion into.
-    BasicBlock* BB = BasicBlock::Create(*TheContext, "entry", TheFunction);
-    Builder->SetInsertPoint(BB);
-
-    // Record the function arguments in the NamedValues map.
-    NamedValues.clear();
-    for (auto& Arg : TheFunction->args()) {
-        // Create an alloca for this variable.
-        AllocaInst* Alloca = CreateEntryBlockAlloca(TheFunction, Arg.getName());
-
-        // Store the initial value into the alloca.
-        Builder->CreateStore(&Arg, Alloca);
-
-        // Add arguments to variable symbol table.
-        NamedValues[std::string(Arg.getName())] = Alloca;
-    }
-
-    if (Value* RetVal = Body->codegen()) {
-        // Finish off the function.
-        Builder->CreateRet(RetVal);
-
-        // Validate the generated code, checking for consistency.
-        verifyFunction(*TheFunction);
-
-        return TheFunction;
-    }
-
-    // Error reading body, remove function.
-    TheFunction->eraseFromParent();
-
-    if (P.isBinaryOp())
-        BinopPrecedence.erase(P.getOperatorName());
-    return nullptr;
-}
-
 //===----------------------------------------------------------------------===//
 // Top-Level parsing and JIT Driver
 //===----------------------------------------------------------------------===//
