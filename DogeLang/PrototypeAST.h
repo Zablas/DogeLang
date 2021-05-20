@@ -4,6 +4,7 @@
 #include <vector>
 #include <cassert>
 #include "llvm/IR/Function.h"
+#include "GlobalPointers.h"
 
 namespace
 {
@@ -20,7 +21,24 @@ namespace
             : Name(Name), Args(std::move(Args)), IsOperator(IsOperator),
             Precedence(Prec) {}
 
-        llvm::Function* codegen();
+        llvm::Function* codegen()
+        {
+            // Make the function type:  double(double,double) etc.
+            std::vector<llvm::Type*> Doubles(Args.size(), llvm::Type::getDoubleTy(*TheContext));
+            llvm::FunctionType* FT =
+                llvm::FunctionType::get(llvm::Type::getDoubleTy(*TheContext), Doubles, false);
+
+            llvm::Function* F =
+                llvm::Function::Create(FT, llvm::Function::ExternalLinkage, Name, TheModule.get());
+
+            // Set names for all arguments.
+            unsigned Idx = 0;
+            for (auto& Arg : F->args())
+                Arg.setName(Args[Idx++]);
+
+            return F;
+        }
+
         const std::string& getName() const { return Name; }
 
         bool isUnaryOp() const { return IsOperator && Args.size() == 1; }
