@@ -20,3 +20,12 @@ inline llvm::Function* getFunction(std::string Name)
     // If no existing prototype exists, return null.
     return nullptr;
 }
+
+/// CreateEntryBlockAlloca - Create an alloca instruction in the entry block of
+/// the function.  This is used for mutable variables etc.
+static llvm::AllocaInst* CreateEntryBlockAlloca(llvm::Function* TheFunction,
+    llvm::StringRef VarName) {
+    llvm::IRBuilder<> TmpB(&TheFunction->getEntryBlock(),
+        TheFunction->getEntryBlock().begin());
+    return TmpB.CreateAlloca(llvm::Type::getDoubleTy(*TheContext), nullptr, VarName);
+}

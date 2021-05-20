@@ -425,7 +425,7 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(226): message
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<unsigned int>> &)' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to class template instantiation 'llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(463,24): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
-  IfExprAST.cpp
+  VarExprAST.cpp
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Alignment.h(201,17): warning C4244: 'return': conversion from 'uint64_t' to 'uintptr_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(115,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(120,23): warning C4244: 'return': conversion from 'uint64_t' to 'long', possible loss of data
@@ -540,6 +540,7 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instruction.h(804): message :
               StorageType=unsigned short
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(585): message : see reference to function template instantiation 'bool llvm::Instruction::getSubclassData<llvm::AtomicCmpXchgInst::WeakField>(void) const' being compiled
+C:\Users\vagab\source\repos\DogeLang\DogeLang\PrototypeAST.h(23,25): warning C5046: '`anonymous-namespace'::PrototypeAST::codegen': Symbol involving type with internal linkage not defined
   Generating Code...
      Creating library C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.lib and object C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exp
   DogeLang.vcxproj -> C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exe
