@@ -1,16 +1,65 @@
 ﻿  DogeLang.cpp
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\APInt.h(1831,20): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(115,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(120,23): warning C4244: 'return': conversion from 'uint64_t' to 'long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(569,24): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(581,26): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(620,23): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Alignment.h(201,17): warning C4244: 'return': conversion from 'uint64_t' to 'uintptr_t', possible loss of data
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\User.h(48,32): warning C4141: 'inline': used more than once
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(427,16): warning C4244: '=': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(466,16): warning C4244: '=': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(79,1): warning C4624: 'llvm::detail::copy_construction_triviality_helper<T>': destructor was implicitly defined as deleted
+          with
+          [
+              T=std::string
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\type_traits(631): message : see reference to class template instantiation 'llvm::detail::copy_construction_triviality_helper<T>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(100): message : see reference to class template instantiation 'std::is_copy_constructible<llvm::detail::copy_construction_triviality_helper<T>>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(211): message : see reference to class template instantiation 'llvm::is_trivially_copy_constructible<T>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(883): message : see reference to class template instantiation 'llvm::SmallVectorImpl<T>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Error.h(992): message : see reference to class template instantiation 'llvm::SmallVector<std::string,2>' being compiled
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(86,1): warning C4624: 'llvm::detail::move_construction_triviality_helper<T>': destructor was implicitly defined as deleted
+          with
+          [
+              T=std::string
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\type_traits(662): message : see reference to class template instantiation 'llvm::detail::move_construction_triviality_helper<T>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(111): message : see reference to class template instantiation 'std::is_move_constructible<llvm::detail::move_construction_triviality_helper<T>>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(212): message : see reference to class template instantiation 'llvm::is_trivially_move_constructible<T>' being compiled
+          with
+          [
+              T=std::string
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\APInt.h(1831,20): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\TypeSize.h(57,43): warning C4244: 'argument': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(471,22): warning C4244: 'initializing': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(502,24): warning C4244: 'initializing': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(612,52): warning C4244: 'argument': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Alignment.h(201,17): warning C4244: 'return': conversion from 'uint64_t' to 'uintptr_t', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\User.h(48,32): warning C4141: 'inline': used more than once
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\GlobalObject.h(76,12): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(355,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(456,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
@@ -22,20 +71,19 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(350,58): warni
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(91,1): warning C4624: 'llvm::detail::trivial_helper<T>': destructor was implicitly defined as deleted
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(144): message : see reference to class template instantiation 'llvm::detail::trivial_helper<T>' being compiled
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Optional.h(216): message : see reference to class template instantiation 'llvm::is_trivially_copyable<T>' being compiled
           with
           [
-              T=llvm::SmallVector<uint32_t,8>
+              T=llvm::SmallVector<unsigned int,8>
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(3451): message : see reference to class template instantiation 'llvm::Optional<llvm::SmallVector<uint32_t,8>>' being compiled
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(3451): message : see reference to class template instantiation 'llvm::Optional<llvm::SmallVector<unsigned int,8>>' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\IntrinsicInst.h(536,52): warning C4244: 'return': conversion from 'uint64_t' to 'uint32_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(116,1): warning C4624: 'llvm::OverflowingBinaryOperator': destructor was implicitly defined as deleted
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(157,1): warning C4624: 'llvm::PossiblyExactOperator': destructor was implicitly defined as deleted
@@ -79,8 +127,6 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(614,1): warning C4
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(424,1): warning C4624: 'llvm::ConcreteOperator<llvm::Operator,50>': destructor was implicitly defined as deleted
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(617): message : see reference to class template instantiation 'llvm::ConcreteOperator<llvm::Operator,50>' being compiled
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Operator.h(633,1): warning C4624: 'llvm::AddrSpaceCastOperator': destructor was implicitly defined as deleted
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(427,16): warning C4244: '=': conversion from 'uint64_t' to 'unsigned int', possible loss of data
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(466,16): warning C4244: '=': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(79,1): warning C4624: 'llvm::detail::copy_construction_triviality_helper<T>': destructor was implicitly defined as deleted
           with
           [
@@ -262,52 +308,6 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(212): message 
           [
               T=llvm::unique_function<llvm::PassInstrumentationCallbacks::AfterPassInvalidatedFunc>
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(79,1): warning C4624: 'llvm::detail::copy_construction_triviality_helper<T>': destructor was implicitly defined as deleted
-          with
-          [
-              T=std::string
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\type_traits(631): message : see reference to class template instantiation 'llvm::detail::copy_construction_triviality_helper<T>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(100): message : see reference to class template instantiation 'std::is_copy_constructible<llvm::detail::copy_construction_triviality_helper<T>>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(211): message : see reference to class template instantiation 'llvm::is_trivially_copy_constructible<T>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(883): message : see reference to class template instantiation 'llvm::SmallVectorImpl<T>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Error.h(992): message : see reference to class template instantiation 'llvm::SmallVector<std::string,2>' being compiled
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(86,1): warning C4624: 'llvm::detail::move_construction_triviality_helper<T>': destructor was implicitly defined as deleted
-          with
-          [
-              T=std::string
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\type_traits(662): message : see reference to class template instantiation 'llvm::detail::move_construction_triviality_helper<T>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\Support\type_traits.h(111): message : see reference to class template instantiation 'std::is_move_constructible<llvm::detail::move_construction_triviality_helper<T>>' being compiled
-          with
-          [
-              T=std::string
-          ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\SmallVector.h(212): message : see reference to class template instantiation 'llvm::is_trivially_move_constructible<T>' being compiled
-          with
-          [
-              T=std::string
-          ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMap.h(392,24): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMap.h(386): message : while compiling class template member function 'unsigned int llvm::DenseMapBase<llvm::DenseMap<const llvm::MDNode *,bool,llvm::DenseMapInfo<KeyT>,llvm::detail::DenseMapPair<KeyT,ValueT>>,KeyT,ValueT,KeyInfoT,BucketT>::getMinBucketToReserveForEntries(unsigned int)'
           with
@@ -397,33 +397,50 @@ C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(451,22): warning C
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(478): message : see reference to function template instantiation 'llvm::hash_code llvm::hashing::detail::hash_combine_range_impl<const T>(ValueT *,ValueT *)' being compiled
           with
           [
-              T=unsigned int,
-              ValueT=unsigned int
+              T=llvm::BitVector::BitWord,
+              ValueT=llvm::BitVector::BitWord
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\ArrayRef.h(553): message : see reference to function template instantiation 'llvm::hash_code llvm::hash_combine_range<const unsigned int*>(InputIteratorT,InputIteratorT)' being compiled
           with
           [
               InputIteratorT=const unsigned int *
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(331): message : see reference to function template instantiation 'llvm::hash_code llvm::hash_value<unsigned int>(llvm::ArrayRef<unsigned int>)' being compiled
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(327): message : while compiling class template member function 'unsigned int llvm::DenseMapInfo<U>::getHashValue(llvm::ArrayRef<unsigned int>)'
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(331): message : see reference to function template instantiation 'llvm::hash_code llvm::hash_value<T>(llvm::ArrayRef<T>)' being compiled
           with
           [
-              U=llvm::ArrayRef<unsigned int>
+              T=llvm::BitVector::BitWord
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(227): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<U>::getHashValue(llvm::ArrayRef<unsigned int>)' being compiled
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(327): message : while compiling class template member function 'unsigned int llvm::DenseMapInfo<U>::getHashValue(llvm::ArrayRef<T>)'
           with
           [
-              U=llvm::ArrayRef<unsigned int>
+              U=llvm::ArrayRef<llvm::BitVector::BitWord>,
+              T=llvm::BitVector::BitWord
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(227): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<U>::getHashValue(llvm::ArrayRef<T>)' being compiled
+          with
+          [
+              U=llvm::ArrayRef<llvm::BitVector::BitWord>,
+              T=llvm::BitVector::BitWord
           ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(228): message : see reference to class template instantiation 'llvm::DenseMapInfo<U>' being compiled
           with
           [
-              U=llvm::ArrayRef<unsigned int>
+              U=llvm::ArrayRef<llvm::BitVector::BitWord>
           ]
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(226): message : while compiling class template member function 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<unsigned int>> &)'
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<unsigned int>> &)' being compiled
-C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to class template instantiation 'llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<unsigned int>>>' being compiled
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\DenseMapInfo.h(226): message : while compiling class template member function 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<T>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<T>> &)'
+          with
+          [
+              T=llvm::BitVector::BitWord
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to function template instantiation 'unsigned int llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<T>>>::getHashValue(const std::pair<unsigned int,llvm::ArrayRef<T>> &)' being compiled
+          with
+          [
+              T=llvm::BitVector::BitWord
+          ]
+C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\BitVector.h(948): message : see reference to class template instantiation 'llvm::DenseMapInfo<std::pair<unsigned int,llvm::ArrayRef<T>>>' being compiled
+          with
+          [
+              T=llvm::BitVector::BitWord
+          ]
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(463,24): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
-     Creating library C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.lib and object C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exp
   DogeLang.vcxproj -> C:\Users\vagab\source\repos\DogeLang\Debug\DogeLang.exe
