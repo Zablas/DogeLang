@@ -139,7 +139,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryExprAST.cpp" />
+    <ClCompile Include="CallExprAST.cpp" />
     <ClCompile Include="DogeLang.cpp" />
+    <ClCompile Include="ExprAST.cpp" />
+    <ClCompile Include="ForExprAST.cpp" />
+    <ClCompile Include="FunctionAST.cpp" />
+    <ClCompile Include="IfExprAST.cpp" />
+    <ClCompile Include="NumberExprAST.cpp" />
+    <ClCompile Include="PrototypeAST.cpp" />
+    <ClCompile Include="UnaryExprAST.cpp" />
+    <ClCompile Include="VarExprAST.cpp" />
+    <ClCompile Include="VariableExprAST.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseTypeGlobals.h" />
+    <ClInclude Include="BinaryExprAST.h" />
+    <ClInclude Include="CallExprAST.h" />
+    <ClInclude Include="ExprAST.h" />
+    <ClInclude Include="Externs.h" />
+    <ClInclude Include="ForExprAST.h" />
+    <ClInclude Include="FunctionAST.h" />
+    <ClInclude Include="Getters.h" />
+    <ClInclude Include="GlobalPointers.h" />
+    <ClInclude Include="Handlers.h" />
+    <ClInclude Include="IfExprAST.h" />
+    <ClInclude Include="LogFunctions.h" />
+    <ClInclude Include="MainLogic.h" />
+    <ClInclude Include="MapContainers.h" />
+    <ClInclude Include="NumberExprAST.h" />
+    <ClInclude Include="Parsers.h" />
+    <ClInclude Include="PrototypeAST.h" />
+    <ClInclude Include="Token.h" />
+    <ClInclude Include="UnaryExprAST.h" />
+    <ClInclude Include="VarExprAST.h" />
+    <ClInclude Include="VariableExprAST.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
