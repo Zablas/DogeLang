@@ -101,5 +101,11 @@
     <ClInclude Include="Getters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Parsers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTypeGlobals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

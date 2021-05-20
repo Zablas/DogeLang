@@ -153,6 +153,7 @@
     <ClCompile Include="VariableExprAST.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseTypeGlobals.h" />
     <ClInclude Include="BinaryExprAST.h" />
     <ClInclude Include="CallExprAST.h" />
     <ClInclude Include="ExprAST.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="LogFunctions.h" />
     <ClInclude Include="MapContainers.h" />
     <ClInclude Include="NumberExprAST.h" />
+    <ClInclude Include="Parsers.h" />
     <ClInclude Include="PrototypeAST.h" />
     <ClInclude Include="Token.h" />
     <ClInclude Include="UnaryExprAST.h" />
