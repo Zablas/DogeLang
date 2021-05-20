@@ -34,7 +34,8 @@ static llvm::AllocaInst* CreateEntryBlockAlloca(llvm::Function* TheFunction,
 }
 
 /// gettok - Return the next token from standard input.
-static int gettok() {
+static int gettok()
+{
     static int LastChar = ' ';
 
     // Skip any whitespace.
@@ -67,6 +68,8 @@ static int gettok() {
             return tok_unary;
         if (IdentifierStr == "var")
             return tok_var;
+        if (IdentifierStr == "imteger")
+            return tok_int;
         return tok_identifier;
     }
 

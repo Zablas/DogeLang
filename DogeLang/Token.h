@@ -26,5 +26,6 @@ enum Token
     tok_unary = -12,
 
     // var definition
-    tok_var = -13
+    tok_var = -13,
+    tok_int = -14
 };

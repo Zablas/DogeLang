@@ -36,9 +36,25 @@ static void HandleExtern()
 
 static void HandleTopLevelExpression()
 {
-    // Evaluate a top-level expression into an anonymous function.
-    if (auto FnAST = ParseTopLevelExpr())
-        FnAST->codegen();
-    else // Skip token for error recovery.
-        getNextToken();
+    if (CurTok == tok_int)
+    {
+        if (auto GlobalVariableAST = ParseGlobalVariable())
+        {
+            GlobalVariableAST->codegen();
+            return;
+        }
+        //else getNextToken();
+    }
+    else
+    {
+        // Evaluate a top-level expression into an anonymous function.
+        if (auto FnAST = ParseTopLevelExpr())
+        {
+            FnAST->codegen();
+            return;
+        }
+        //else getNextToken();
+    }
+
+    getNextToken(); // Skip token for error recovery.
 }

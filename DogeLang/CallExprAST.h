@@ -31,7 +31,8 @@ namespace
                 return LogErrorV("Incorrect # arguments passed");
 
             std::vector<llvm::Value*> ArgsV;
-            for (unsigned i = 0, e = Args.size(); i != e; ++i) {
+            for (unsigned i = 0, e = Args.size(); i != e; ++i)
+            {
                 ArgsV.push_back(Args[i]->codegen());
                 if (!ArgsV.back())
                     return nullptr;

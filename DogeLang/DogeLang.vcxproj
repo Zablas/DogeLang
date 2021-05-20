@@ -146,6 +146,7 @@
     <ClCompile Include="ForExprAST.cpp" />
     <ClCompile Include="FunctionAST.cpp" />
     <ClCompile Include="IfExprAST.cpp" />
+    <ClCompile Include="IntegerAST.cpp" />
     <ClCompile Include="NumberExprAST.cpp" />
     <ClCompile Include="PrototypeAST.cpp" />
     <ClCompile Include="UnaryExprAST.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="GlobalPointers.h" />
     <ClInclude Include="Handlers.h" />
     <ClInclude Include="IfExprAST.h" />
+    <ClInclude Include="IntegerAST.h" />
     <ClInclude Include="LogFunctions.h" />
     <ClInclude Include="MainLogic.h" />
     <ClInclude Include="MapContainers.h" />

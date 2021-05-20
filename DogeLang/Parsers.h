@@ -14,6 +14,7 @@
 #include "BinaryExprAST.h"
 #include "FunctionAST.h"
 #include "BaseTypeGlobals.h"
+#include "IntegerAST.h"
 
 static std::unique_ptr<ExprAST> ParseExpression();
 
@@ -156,6 +157,41 @@ static std::unique_ptr<ExprAST> ParseForExpr()
 		std::move(Step), std::move(Body));
 }
 
+static std::unique_ptr<ExprAST> ParseIntegerExpr()
+{
+	getNextToken(); // Suvalgom "imteger"
+
+	if (CurTok != tok_identifier)
+		return LogError("expected identifier after imteger");
+
+	std::string name = IdentifierStr;
+	int value = 0;
+
+	getNextToken(); // Suvalgom pavadinima
+
+	if (CurTok != '=')
+	{
+		if (CurTok != ';')
+			return LogError("expected semicolon after identifier");
+		//getNextToken(); // Suvalgom EOF
+	}
+	else
+	{
+		getNextToken(); // Suvalgom =
+
+		if(CurTok != tok_number)
+			return LogError("expected numeric value after equals");
+
+		value = NumVal;
+		getNextToken();
+
+		if (CurTok != ';')
+			return LogError("expected semicolon after numeric value");
+	}
+
+	return std::make_unique<IntegerAST>(std::move(name), std::move(value));
+}
+
 /// varexpr ::= 'var' identifier ('=' expression)?
 //                    (',' identifier ('=' expression)?)* 'in' expression
 static std::unique_ptr<ExprAST> ParseVarExpr()
@@ -232,6 +268,8 @@ static std::unique_ptr<ExprAST> ParsePrimary()
 		return ParseForExpr();
 	case tok_var:
 		return ParseVarExpr();
+	case tok_int:
+		return ParseIntegerExpr();
 	}
 }
 
@@ -298,6 +336,10 @@ static std::unique_ptr<ExprAST> ParseBinOpRHS(int ExprPrec,
 static std::unique_ptr<ExprAST> ParseExpression()
 {
 	auto LHS = ParseUnary();
+
+	//auto GlobalVariable = dynamic_cast<IntegerAST*>(LHS.get());
+	//if (GlobalVariable) return nullptr;
+
 	if (!LHS)
 		return nullptr;
 
@@ -396,6 +438,14 @@ static std::unique_ptr<FunctionAST> ParseTopLevelExpr()
 			std::vector<std::string>());
 		return std::make_unique<FunctionAST>(std::move(Proto), std::move(E));
 	}
+	return nullptr;
+}
+
+static std::unique_ptr<ExprAST> ParseGlobalVariable()
+{
+	if (auto E = ParseExpression())
+		return E;
+
 	return nullptr;
 }
 
