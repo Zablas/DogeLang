@@ -50,6 +50,8 @@
 #include "Getters.h"
 #include "Parsers.h"
 #include "BaseTypeGlobals.h"
+#include "Handlers.h"
+#include "MainLogic.h"
 
 using namespace llvm;
 using namespace llvm::sys;
@@ -58,76 +60,36 @@ using namespace llvm::sys;
 // Top-Level parsing and JIT Driver
 //===----------------------------------------------------------------------===//
 
-static void InitializeModuleAndPassManager() {
-    // Open a new module.
-    TheContext = std::make_unique<LLVMContext>();
-    TheModule = std::make_unique<Module>("my cool jit", *TheContext);
-
-    // Create a new builder for the module.
-    Builder = std::make_unique<IRBuilder<>>(*TheContext);
-}
-
-static void HandleDefinition() {
-    if (auto FnAST = ParseDefinition()) {
-        if (auto* FnIR = FnAST->codegen()) {
-            fprintf(stderr, "Read function definition:");
-            FnIR->print(errs());
-            fprintf(stderr, "\n");
-        }
-    }
-    else {
-        // Skip token for error recovery.
-        getNextToken();
-    }
-}
-
-static void HandleExtern() {
-    if (auto ProtoAST = ParseExtern()) {
-        if (auto* FnIR = ProtoAST->codegen()) {
-            fprintf(stderr, "Read extern: ");
-            FnIR->print(errs());
-            fprintf(stderr, "\n");
-            FunctionProtos[ProtoAST->getName()] = std::move(ProtoAST);
-        }
-    }
-    else {
-        // Skip token for error recovery.
-        getNextToken();
-    }
-}
-
-static void HandleTopLevelExpression() {
-    // Evaluate a top-level expression into an anonymous function.
-    if (auto FnAST = ParseTopLevelExpr()) {
-        FnAST->codegen();
-    }
-    else {
-        // Skip token for error recovery.
-        getNextToken();
-    }
-}
-
-/// top ::= definition | external | expression | ';'
-static void MainLoop() {
-    while (true) {
-        switch (CurTok) {
-        case tok_eof:
-            return;
-        case ';': // ignore top-level semicolons.
-            getNextToken();
-            break;
-        case tok_def:
-            HandleDefinition();
-            break;
-        case tok_extern:
-            HandleExtern();
-            break;
-        default:
-            HandleTopLevelExpression();
-            break;
-        }
-    }
-}
+//static void InitializeModuleAndPassManager() {
+//    // Open a new module.
+//    TheContext = std::make_unique<LLVMContext>();
+//    TheModule = std::make_unique<Module>("my cool jit", *TheContext);
+//
+//    // Create a new builder for the module.
+//    Builder = std::make_unique<IRBuilder<>>(*TheContext);
+//}
+//
+///// top ::= definition | external | expression | ';'
+//static void MainLoop() {
+//    while (true) {
+//        switch (CurTok) {
+//        case tok_eof:
+//            return;
+//        case ';': // ignore top-level semicolons.
+//            getNextToken();
+//            break;
+//        case tok_def:
+//            HandleDefinition();
+//            break;
+//        case tok_extern:
+//            HandleExtern();
+//            break;
+//        default:
+//            HandleTopLevelExpression();
+//            break;
+//        }
+//    }
+//}
 
 //===----------------------------------------------------------------------===//
 // "Library" functions that can be "extern'd" from user code.
