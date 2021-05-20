@@ -1,20 +1,20 @@
-﻿  BinaryExprAST.cpp
+﻿  CallExprAST.cpp
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\Alignment.h(201,17): warning C4244: 'return': conversion from 'uint64_t' to 'uintptr_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(115,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\SwapByteOrder.h(120,23): warning C4244: 'return': conversion from 'uint64_t' to 'long', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(569,24): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(581,26): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\Hashing.h(620,23): warning C4244: 'argument': conversion from 'uint64_t' to 'size_t', possible loss of data
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\User.h(48,32): warning C4141: 'inline': used more than once
 C:\src\vcpkg\installed\x86-windows\include\llvm\ADT\APInt.h(1831,20): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\Support\TypeSize.h(57,43): warning C4244: 'argument': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(471,22): warning C4244: 'initializing': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(502,24): warning C4244: 'initializing': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DerivedTypes.h(612,52): warning C4244: 'argument': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
+C:\src\vcpkg\installed\x86-windows\include\llvm\IR\User.h(48,32): warning C4141: 'inline': used more than once
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\GlobalObject.h(76,12): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(355,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Function.h(456,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
-C:\src\vcpkg\installed\x86-windows\include\llvm\IR\DataLayout.h(589,39): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\InstrTypes.h(1598,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\InstrTypes.h(1609,23): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
 C:\src\vcpkg\installed\x86-windows\include\llvm\IR\Instructions.h(127,58): warning C4244: 'return': conversion from 'uint64_t' to 'unsigned int', possible loss of data
